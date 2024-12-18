@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Pollution Data Display</title>
+        <script src="tp08-tableau-pays.js" defer></script>
+
+        <style>
+            table
+            {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: left;
+            }
+            thead
+            {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+            th, td
+            {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            table th:first-child, table td:first-child
+            {
+                width: 2em;
+                text-align: center;
+            }
+            tr:nth-child(even)
+            {
+                background-color: #f9f9f9;
+            }
+            tr:hover
+            {
+                background-color: #f1f1f1;
+            }
+            th
+            {
+                background-color: #007BFF;
+                color: white;
+            }
+            caption
+            {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            img
+            {
+                width: 24px;
+                height: 18px;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body onload="initializeData()">
+        <h1 id="title"></h1>
+        <h2 id="year"></h2>
+
+        <table id="countriesTable">
+            <caption>Countries CO2 Emissions</caption>
+
+            <thead>
+                <tr>
+                    <th>Flag</th>
+                    <th>Country</th>
+                    <th>Value (Billion tons)</th>
+                    <th>Percentage (%)</th>
+                </tr>
+            </thead>
+
+            <tbody> </tbody>
+        </table>
+    </body>
+</html>
