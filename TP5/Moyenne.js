@@ -9,15 +9,33 @@ function calculateAverage(array)
         return "Error: The array contains non-numeric values.";
     }
 
-    let numbers = array.map(item => parseFloat(item.trim()));
-    let sum = numbers.reduce((acc, num) => acc + num, 0);
+    let numbers;
+    let sum;
+
+    try
+    {
+        numbers = array.map(item => parseFloat(item.trim()));
+        sum = numbers.reduce((acc, num) => acc + num, 0);
+    } catch(error)
+    {
+        console.log("Error while trying to parse argument");
+        throw error;
+    }
+
     return sum / numbers.length;
 }
 
-// Retrieve arguments starting from the third position
-let args = process.argv.slice(2);
-let inputArray = args.join(" ").split(",").map(item => item.trim());
+try
+{
+    // Retrieve arguments starting from the third position
+    let args = process.argv.slice(2);
+    let inputArray = args.join(" ").split(",").map(item => item.trim());
 
-let result = calculateAverage(inputArray);
-console.log(`Input Array: [${inputArray.join(", ")}]`);
-console.log(`Average: ${result}`);
+    let result = calculateAverage(inputArray);
+    console.log(`Input Array: [${inputArray.join(", ")}]`);
+    console.log(`Average: ${result}`);
+} catch(error)
+{
+    console.log("Error while processing data");
+    throw error;
+}
