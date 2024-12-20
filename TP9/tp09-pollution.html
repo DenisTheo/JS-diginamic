@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Affichage des données de pollution</title>
+        <script src="tp09-pollution.js" defer></script>
+
+        <style>
+            table
+            {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                font-size: 14px;
+                text-align: left;
+            }
+            thead
+            {
+                background-color: #f4f4f4;
+                font-weight: bold;
+            }
+            th, td
+            {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+            table th:first-child, table td:first-child
+            {
+                width: 2em;
+                text-align: center;
+            }
+            tr:nth-child(even)
+            {
+                background-color: #f9f9f9;
+            }
+            tr:hover
+            {
+                background-color: #f1f1f1;
+            }
+            th
+            {
+                background-color: #007BFF;
+                color: white;
+            }
+            caption
+            {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            img
+            {
+                width: 24px;
+                height: 18px;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body onload="initializeData()">
+        <h1 id="title"></h1>
+        <h2 id="year"></h2>
+
+        <table id="countriesTable">
+            <caption>Émissions de CO2 par pays</caption>
+
+            <thead>
+                <tr>
+                    <th>Drapeau</th>
+                    <th>Pays</th>
+                    <th>Valeur (Milliards de tonnes)</th>
+                    <th>Pourcentage (%)</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>User Management</title>
+        <script src="modale-view.js"></script>
+        <script src="tp-10-formulaire.js" defer></script>
+
+        <style>
+            body
+            {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+
+            h1
+            {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            table
+            {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+
+            th, td
+            {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            th
+            {
+                background-color: #f4f4f4;
+            }
+
+            tr:nth-child(even)
+            {
+                background-color: #f9f9f9;
+            }
+
+            tr:hover
+            {
+                background-color: #f1f1f1;
+            }
+
+            .action-buttons
+            {
+                display: flex;
+                gap: 5px;
+            }
+
+            .btn
+            {
+                padding: 5px 10px;
+                font-size: 14px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+
+            .btn-add
+            {
+                background-color: #28a745;
+                color: white;
+            }
+
+            .btn-delete
+            {
+                background-color: #dc3545;
+                color: white;
+            }
+
+            .btn:hover
+            {
+                opacity: 0.9;
+            }
+
+            #footer
+            {
+                margin-top: 40px;
+                text-align: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>User Management</h1>
+        <button class="btn btn-add" onclick="openModale('createUserModal')">+ Add User</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Date of Birth</th>
+                    <th>Place of Birth</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="userTableBody"> </tbody>
+        </table>
+
+        <!-- Modals -->
+        <div id="footer">
+            <!-- Creates User -->
+            <modale-view id="createUserModal" modale-width="40%">
+                <div slot="title" header-color="#007bff">Create a User</div>
+
+                <div slot="body">
+                    <form id="createUserForm">
+                        <label>Last Name: <input type="text" name="nom" required></label><br>
+                        <label>First Name: <input type="text" name="prenom" required></label><br>
+                        <label>Date of Birth: <input type="date" name="dateNaissance" required></label><br>
+                        <label>Place of Birth: <input type="text" name="lieuNaissance" required></label><br>
+                        <label>Street Number: <input type="text" name="numeroRue" required></label><br>
+                        <label>Street Name: <input type="text" name="libelleRue" required></label><br>
+                        <label>Postal Code: <input type="text" name="codePostal" required></label><br>
+                        <label>City: <input type="text" name="ville" required></label><br>
+                    </form>
+                </div>
+
+                <div slot="footer">
+                    <button class="btn btn-delete" onclick="closeModale('createUserModal')">Cancel</button>
+                    <button class="btn btn-add" onclick="createUser()">Create</button>
+                </div>
+            </modale-view>
+
+            <!-- Delete Confirmation -->
+            <modale-view id="deleteUserModal" modale-width="30%">
+                <div slot="title" header-color="#dc3545">Delete User</div>
+
+                <div slot="body">
+                    <p>Are you sure you want to delete this user?</p>
+                </div>
+
+                <div slot="footer">
+                    <button class="btn btn-delete" onclick="closeModale('deleteUserModal')">Cancel</button>
+                    <button class="btn btn-add" onclick="confirmDelete()">Delete</button>
+                </div>
+            </modale-view>
+        </div>
+    </body>
+</html>

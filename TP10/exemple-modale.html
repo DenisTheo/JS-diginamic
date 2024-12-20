@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="modale-view.js"></script>
+    <script>
+        function creerUtilisateur(){
+
+            closeModale('modale1');
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <!-- Bouton pour ouvrir la modale -->
+    <button id="openModal" onclick="openModale('modale1');">Ouvrir la modale 1</button>
+    <button id="openModal" onclick="openModale('modale2');">Ouvrir la modale 2</button>
+
+    <modale-view id="modale1" modale-width="20%">
+        <div slot="title" header-color="#dc3545">Créer un utilisateur</div>
+        <div slot="body">
+            <form>
+                Nom <input type="text" name="nom"><br>
+                Prénom <input type="text" name="prénom"><br>
+                Date de naissance <input type="date" name="prénom"><br>
+            </form>
+        </div>
+        <div slot="footer">
+            <input type="button" value="Annuler" onclick="closeModale('modale1')"> <input type="button" value="Valider" onclick="creerUtilisateur()">
+        </div>
+    </modale-view>
+
+    <modale-view id="modale2">
+        <div slot="title">Modifier un utilisateur</div>
+        <div slot="body">
+            <p>Voici un contenu personnalisé pour la modale.</p>
+        </div>
+    </modale-view>
+</body>
+<script>
+
+</script>
+
+</html>
